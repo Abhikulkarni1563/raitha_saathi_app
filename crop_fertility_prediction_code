@@ -1,0 +1,313 @@
+import pandas as pd
+fertility_df = pd.read_csv('/content/drive/MyDrive/New/processed_data_set.csv')
+fertility_df
+
+def categorize_fertility(row):
+    insight = ""
+
+    if 2 > row['NO3'] >= 0.25:
+        insight += (
+            "Very Low Nitrate levels. Implement nitrogen-fixing cover crops to rebuild nutrient levels. "
+            "Consider applying organic nitrogen sources such as compost or manure. Monitor soil moisture "
+            "to ensure optimal conditions for nutrient uptake. Test soil regularly to track nutrient levels "
+            "and adjust fertilization practices accordingly.\n"
+        )
+
+    elif 4 > row['NO3'] >= 2:
+        insight += (
+            "Low Nitrate levels. Apply balanced nitrogen fertilizers to address deficiencies. "
+            "Consider incorporating leguminous cover crops to enhance nitrogen fixation. "
+            "Implement efficient irrigation practices to optimize nutrient uptake. "
+            "Regular soil testing is recommended to monitor nutrient levels over time.\n"
+        )
+
+    elif 6.18 > row['NO3'] >= 4:
+        insight += (
+            "Average Nitrate levels. Continue to monitor nitrogen levels closely. "
+            "Implement crop rotation strategies to manage nitrogen availability. "
+            "Consider supplementing with organic amendments to maintain soil fertility. "
+            "Regularly monitor crop performance to assess nitrogen requirements.\n"
+        )
+
+    elif 14.25 > row['NO3'] >= 6.18:
+        insight += (
+            "Above average Nitrate levels. Maintain balanced fertilization practices to prevent excess nitrogen buildup. "
+            "Implement precision farming techniques to optimize nutrient use efficiency. "
+            "Consider cover cropping to prevent nitrogen leaching and improve soil structure. "
+            "Regular soil testing and nutrient management planning are essential for sustained fertility.\n"
+        )
+
+    elif 25 > row['NO3'] >= 14.25:
+        insight += (
+            "Good Nitrate levels. Monitor nitrogen levels regularly to prevent depletion or excess. "
+            "Implement nitrogen management practices tailored to specific crop requirements. "
+            "Consider incorporating nitrogen-fixing legumes into cropping systems to enhance soil fertility. "
+            "Maintain soil organic matter levels to support nitrogen availability and crop productivity.\n"
+        )
+
+    elif 39.5 > row['NO3'] >= 25:
+        insight += (
+            "Very Good Nitrate levels. Optimize nitrogen application timing and rates based on crop needs. "
+            "Implement precision agriculture technologies to fine-tune nutrient management. "
+            "Consider implementing nitrogen-fixing cover crops during fallow periods. "
+            "Monitor soil health indicators to assess nitrogen cycling and utilization efficiency.\n"
+        )
+
+    elif 300 > row['NO3'] >= 39.5:
+        insight += (
+            "Excellent Nitrate levels. Maintain careful nitrogen management practices to avoid environmental impacts. "
+            "Implement advanced nitrogen management techniques such as controlled-release fertilizers. "
+            "Explore nitrogen cycling strategies to maximize nutrient use efficiency and minimize losses. "
+            "Regularly monitor soil nitrogen levels and adjust management practices as needed.\n"
+        )
+
+    elif row['NO3'] >= 300:
+        insight += (
+            "Exceptionally high Nitrate levels. Exercise caution to prevent nitrogen leaching and environmental pollution. "
+            "Implement nitrogen mitigation strategies such as cover cropping and conservation tillage. "
+            "Consider implementing nitrogen removal technologies in intensive cropping systems. "
+            "Collaborate with agricultural experts to develop customized nitrogen management plans.\n"
+        )
+
+
+    elif 2 > row['NO3'] >= 0.25:
+        insight += (
+            "Low Nitrate levels detected.\n"
+            "Consider implementing nitrogen-fixing cover crops to enhance soil fertility.\n"
+            "Explore organic amendments like compost to gradually increase nitrogen content.\n"
+            "Implement crop rotation practices to prevent nitrogen depletion.\n"
+            "Regular soil testing and monitoring recommended to track nitrogen levels.\n"
+        )
+
+    elif 25 > row['P'] >= 10:
+        insight += (
+            "Low Phosphorus levels detected.\n"
+            "Incorporate phosphorus-rich fertilizers or organic matter for soil enrichment.\n"
+            "Utilize phosphorus solubilizing microbes to enhance phosphorus availability.\n"
+            "Adopt conservation tillage practices to reduce phosphorus runoff.\n"
+            "Apply phosphorus-containing amendments strategically to promote root development.\n"
+        )
+
+    elif 0.020 > row['Organic Matter'] >= 0.010:
+        insight += (
+            "Low Organic Matter content observed.\n"
+            "Prioritize organic matter incorporation to improve soil structure and fertility.\n"
+            "Implement cover cropping and green manure practices to boost organic matter levels.\n"
+            "Utilize compost and farmyard manure to increase soil organic carbon content.\n"
+            "Promote microbial activity through organic matter addition for nutrient cycling.\n"
+        )
+
+    elif 7.6 > row['pH'] >= 7.4:
+        insight += (
+            "Low pH levels detected.\n"
+            "Consider liming to raise soil pH and optimize nutrient availability.\n"
+            "Monitor pH regularly and adjust lime application rates accordingly.\n"
+            "Incorporate calcium-containing materials to buffer soil acidity.\n"
+            "Ensure proper drainage to prevent pH fluctuations and nutrient imbalances.\n"
+        )
+
+    elif 0.5 > row['NH4'] >= 0.25:
+        insight += (
+            "Low Ammonium levels detected.\n"
+            "Incorporate ammonium-containing fertilizers to replenish soil nitrogen.\n"
+            "Utilize organic amendments like manure to provide a sustained release of ammonium.\n"
+            "Implement cover cropping to enhance nitrogen fixation and ammonium accumulation.\n"
+            "Consider biofertilizers containing nitrogen-fixing bacteria for soil enrichment.\n"
+        )
+
+
+    elif 7.6 > row['pH'] >= 7.4:
+        insight += (
+            "Soil pH is slightly acidic. Consider liming to raise pH and improve nutrient availability.\n"
+            "Monitor pH regularly to ensure it remains within optimal range for crop growth.\n"
+            "Acidic soils may benefit from the addition of lime or calcium-based fertilizers.\n"
+            "Test pH levels in different parts of the field to identify variations and adjust management practices accordingly.\n"
+            "Maintain proper drainage to prevent pH fluctuations and ensure uniform nutrient distribution.\n"
+        )
+
+    elif 7.7 > row['pH'] >= 7.6:
+        insight += (
+            "Soil pH is within the optimal range for most crops.\n"
+            "Continue monitoring pH to prevent any fluctuations that may affect nutrient availability.\n"
+            "Maintain balanced fertilization practices to prevent pH drift towards acidity or alkalinity.\n"
+            "Consider incorporating organic matter to buffer pH and improve soil structure.\n"
+            "Regularly test pH in conjunction with other soil parameters to fine-tune nutrient management strategies.\n"
+        )
+
+    elif 7.8 > row['pH'] >= 7.7:
+        insight += (
+            "Soil pH is slightly alkaline. Monitor pH levels to prevent further increase.\n"
+            "Consider acidifying amendments such as sulfur or ammonium-based fertilizers to lower pH if necessary.\n"
+            "Maintain proper soil aeration and drainage to prevent pH buildup.\n"
+            "Monitor nutrient uptake to ensure pH levels do not impede nutrient availability.\n"
+            "Regular soil testing and pH monitoring are essential to prevent nutrient imbalances.\n"
+        )
+
+    elif 8 > row['pH'] >= 7.8:
+        insight += (
+            "Soil pH is moderately alkaline. Implement measures to lower pH if necessary.\n"
+            "Consider using acidifying fertilizers or amendments to reduce pH levels.\n"
+            "Monitor plant growth and nutrient uptake to assess the impact of pH on crop performance.\n"
+            "Regularly test pH and adjust management practices accordingly to maintain optimal soil conditions.\n"
+            "Incorporate organic matter to improve soil buffering capacity and promote microbial activity.\n"
+        )
+
+    elif 8.5 > row['pH'] >= 8:
+        insight += (
+            "Soil pH is alkaline. Implement measures to lower pH and improve nutrient availability.\n"
+            "Consider acidifying agents such as elemental sulfur or acidic fertilizers to reduce pH levels.\n"
+            "Monitor pH closely and adjust soil amendments as needed to maintain optimal pH range.\n"
+            "Maintain proper soil moisture levels to prevent pH fluctuations.\n"
+            "Regularly monitor crop performance and soil health indicators to detect early signs of pH-related issues.\n"
+        )
+
+    elif 9 > row['pH'] >= 8.8:
+        insight += (
+            "Soil pH is highly alkaline. Take immediate steps to lower pH and restore soil balance.\n"
+            "Use acidifying agents such as sulfur or acidifying fertilizers to lower pH levels.\n"
+            "Consider incorporating organic matter to improve soil structure and buffering capacity.\n"
+            "Monitor crop performance and nutrient uptake closely to assess the impact of pH on plant health.\n"
+            "Regularly test pH and implement corrective measures to prevent further pH elevation.\n"
+        )
+
+    elif row['pH'] >= 9:
+        insight += (
+            "Extremely high soil pH. Urgent action is needed to correct pH levels and prevent nutrient lockup.\n"
+            "Implement aggressive soil amendment strategies to lower pH towards neutral range.\n"
+            "Consider incorporating organic matter and acidifying agents in large quantities.\n"
+            "Regularly monitor pH and nutrient levels to gauge the effectiveness of corrective measures.\n"
+            "Consult with soil fertility experts to develop a comprehensive pH management plan.\n"
+        )
+
+    elif 0.020 > row['Organic Matter'] >= 0.010:
+        insight += (
+            "Low Organic Matter levels. Prioritize organic matter incorporation to enrich soil.\n"
+            "Consider adding compost, manure, or cover crops to increase organic matter content.\n"
+            "Organic matter improves soil structure, water retention, and nutrient availability.\n"
+            "Regularly monitor soil organic matter levels to track improvements over time.\n"
+            "Implement conservation tillage practices to minimize organic matter decomposition.\n"
+        )
+    elif 0.025 > row['Organic Matter'] >= 0.020:
+        insight += (
+            "Moderate Organic Matter levels. Continue efforts to increase organic matter content.\n"
+            "Incorporate organic amendments such as compost or green manure into soil.\n"
+            "Organic matter promotes microbial activity, enhancing nutrient cycling in the soil.\n"
+            "Adopt cover cropping and crop rotation strategies to maintain and build organic matter.\n"
+            "Monitor soil structure and water infiltration to assess the impact of organic matter.\n"
+        )
+    elif 0.625 > row['Organic Matter'] >= 0.030:
+        insight += (
+            "Satisfactory Organic Matter levels. Maintain organic matter content for soil health.\n"
+            "Continue incorporating organic residues and minimizing tillage for soil conservation.\n"
+            "Organic matter supports beneficial soil organisms and improves soil structure.\n"
+            "Regular soil testing helps ensure organic matter levels remain within optimal range.\n"
+            "Consider implementing agroecological practices to enhance organic matter cycling.\n"
+        )
+    elif 1 > row['Organic Matter'] >= 0.625:
+        insight += (
+            "Good Organic Matter levels. Maintain current practices to preserve soil health.\n"
+            "Organic matter contributes to soil fertility, moisture retention, and erosion control.\n"
+            "Incorporate cover crops and organic residues to sustain organic matter levels.\n"
+            "Monitor soil structure and tilth to assess the impact of organic matter on soil quality.\n"
+            "Focus on long-term sustainability by integrating organic farming principles.\n"
+        )
+    elif 1.37 > row['Organic Matter'] >= 1:
+        insight += (
+            "Above Average Organic Matter levels. Soil fertility is supported by adequate organic matter.\n"
+            "Continue implementing organic farming practices to maintain soil health.\n"
+            "Organic matter enhances nutrient availability and promotes biodiversity in the soil.\n"
+            "Regular soil sampling helps monitor organic matter levels and adjust management practices.\n"
+            "Consider adopting agroforestry or permaculture techniques to further enhance soil resilience.\n"
+        )
+    elif 5 > row['Organic Matter'] >= 1.37:
+        insight += (
+            "High Organic Matter levels. Soil fertility is well-supported by abundant organic matter.\n"
+            "Maintain organic matter content through sustainable farming practices.\n"
+            "Organic matter improves soil structure, moisture retention, and nutrient cycling.\n"
+            "Monitor soil microbial activity and nutrient release dynamics for optimal crop production.\n"
+            "Continue promoting soil health through crop diversification and organic inputs.\n"
+        )
+    elif row['Organic Matter'] >= 5:
+        insight += (
+            "Very High Organic Matter levels. Soil fertility is excellent due to abundant organic matter.\n"
+            "Maintain organic matter levels to sustain soil health and productivity.\n"
+            "Organic matter fosters a resilient soil ecosystem with high nutrient availability.\n"
+            "Monitor soil carbon levels and microbial diversity for long-term soil sustainability.\n"
+            "Explore carbon sequestration practices to further enhance soil health and mitigate climate change.\n"
+        )
+
+    elif 25 > row['P'] >= 10:
+        insight += (
+            "Low Phosphorus levels. Incorporate phosphorus-rich fertilizers or organic matter.\n"
+        )
+    elif 35 > row['P'] >= 25:
+        insight += (
+            "Moderate Phosphorus levels. Monitor phosphorus levels and adjust fertilization as needed.\n"
+        )
+    elif 49 > row['P'] >= 35:
+        insight += (
+            "Satisfactory Phosphorus levels. Maintain phosphorus balance with appropriate fertilization.\n"
+        )
+    elif 69 > row['P'] >= 49:
+        insight += (
+            "Good Phosphorus levels. Ensure phosphorus remains within optimal range for crop growth.\n"
+        )
+    elif 80 > row['P'] >= 69:
+        insight += (
+            "High Phosphorus levels. Monitor phosphorus closely to prevent excessive accumulation.\n"
+        )
+    elif 107.5 > row['P'] >= 80:
+        insight += (
+            "Very High Phosphorus levels. Take measures to avoid phosphorus runoff and environmental pollution.\n"
+        )
+    elif 171 > row['P'] >= 107.5:
+        insight += (
+            "Extremely High Phosphorus levels. Urgent action is needed to prevent environmental contamination.\n"
+        )
+
+
+    elif row['P'] >= 171:
+
+        insight += (
+            "Extremely High Phosphorus levels. Urgent action is needed to prevent environmental contamination.\n"
+        )
+
+
+
+    return insight.strip()
+
+fertility_df['Soil_Fertility'] = fertility_df.apply(categorize_fertility, axis=1)
+
+from sklearn.model_selection import train_test_split
+
+X = fertility_df[['NO3', 'NH4', 'P', 'Organic Matter', 'pH']]
+y = fertility_df['Soil_Fertility']
+
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+
+print("X_train shape:", X_train.shape)
+print("X_test shape:", X_test.shape)
+print("y_train shape:", y_train.shape)
+print("y_test shape:", y_test.shape)
+
+                                                              from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score
+import joblib
+
+# Define and train the model
+model = RandomForestClassifier(random_state=42)
+model.fit(X_train, y_train)
+
+# Make predictions on the test set
+y_pred = model.predict(X_test)
+
+# Evaluate the model
+accuracy = accuracy_score(y_test, y_pred)
+print("Accuracy:", accuracy)
+
+# Save the model
+joblib.dump(model, "soil_fertility_model.pkl")
+
+
