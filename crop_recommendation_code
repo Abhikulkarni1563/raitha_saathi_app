@@ -1,0 +1,135 @@
+import pandas as pd
+import numpy as np
+
+new_df = pd.read_csv('/content/drive/MyDrive/New/crop_recommendation.csv')
+new_df.head()
+import pandas as pd
+
+
+for index, row in new_df.iterrows():
+
+    if 'Rice' in row['label']:
+      new_df.at[index, 'label'] += "\n1)Nutrient Requirements: Rice typically requires nitrogen (N), phosphorus (P), and potassium (K) in the soil. For example, a common recommendation is around 100-120 kg/ha of N, 40-60 kg/ha of P2O5, and 40-60 kg/ha of K2O.\n2)Increasing Yield: Practices such as proper water management (irrigation or drainage), using high-yielding varieties, applying balanced fertilization, and controlling pests and diseases can help increase rice yield."
+    if 'Maize' in row['label']:
+      new_df.at[index, 'label'] += "\n1)Nutrient Requirements: Maize has relatively high nitrogen requirements compared to other nutrients. A common recommendation is around 120-150 kg/ha of N, 60-80 kg/ha of P2O5, and 60-80 kg/ha of K2O.\n2)Increasing Yield: Practices such as selecting appropriate maize hybrids, ensuring proper spacing, timely planting, weed control, and integrated pest management can contribute to higher maize yields."
+    if 'Chickpea' in row['label']:
+      new_df.at[index, 'label'] += "\n1) Nutrient Requirements: Chickpea typically requires nitrogen (N), phosphorus (P), and potassium (K) in the soil. Recommendations may vary, but generally, 20-40 kg/ha of N, 40-60 kg/ha of P2O5, and 20-40 kg/ha of K2O are common.\n 2) Increasing Yield: Practices such as proper seed selection, soil preparation, weed management, disease control, and optimizing irrigation can help improve chickpea yields."
+    if 'Kidneybeans' in row['label']:
+      new_df.at[index, 'label'] += ('\n\nInoculation: Inoculate seeds with compatible strains of rhizobia bacteria to improve nitrogen fixation in the root nodules.'
+                                      '\nVariety Selection: Choose kidney bean varieties adapted to your local climate and soil conditions for better growth and yield.'
+                                      '\nCrop Rotation: Rotate kidney beans with non-leguminous crops to prevent disease buildup and improve soil fertility.'
+                                      '\nWeed Management: Implement effective weed control measures to reduce competition for nutrients and resources.'
+                                      '\nTimely Harvesting: Harvest kidney beans at the appropriate stage to prevent pod shattering and ensure maximum yield.')
+
+    if 'Pigeonpeas' in row['label']:
+
+      new_df.at[index, 'label'] += ('\n\nInoculation: Use specific rhizobia strains for pigeon peas to enhance nitrogen fixation capacity.'
+                                     '\nSelect pigeon pea varieties with desirable traits such as disease resistance, early maturity, and high yield potential.'
+                                     '\nCrop Rotation: Rotate pigeon peas with cereals or other non-leguminous crops to maintain soil health and reduce pest and disease pressure.'
+                                     '\nWeed Management: Employ weed control methods like mulching, hand weeding, or herbicide application to minimize weed competition.'
+                                     '\nTimely Harvesting: Harvest pigeon peas promptly when pods reach maturity to avoid seed loss and ensure quality.')
+
+
+    if 'Mothbeans' in row['label']:
+      new_df.at[index, 'label'] += ('\n\nInoculation: Inoculate moth bean seeds with compatible rhizobia strains to improve nitrogen fixation efficiency.'
+                                    '\nVariety Selection: Choose moth bean varieties suited to your growing conditions, considering factors like drought tolerance and disease resistance.'
+      '\nCrop Rotation: Rotate moth beans with non-leguminous crops to break pest and disease cycles and replenish soil nutrients.'
+      '\nWeed Management: Implement timely and effective weed control measures to reduce competition and maximize yield potential.'
+      '\nTimely Harvesting: Harvest moth beans at the right stage of maturity to ensure optimal seed quality and yield.')
+
+    if 'Mungbean' in row['label']:
+      new_df.at[index, 'label'] += ('\n\nInoculation: Treat mung bean seeds with rhizobia inoculants before planting to enhance nitrogen fixation capability.'
+      '\nVariety Selection: Opt for mung bean varieties that exhibit good yield potential and resistance to prevalent diseases and pests.'
+                                    '\nCrop Rotation: Rotate mung beans with non-leguminous crops to improve soil structure, reduce pest pressure, and enhance overall productivity.'
+                                    '\nWeed Management: Employ cultural, mechanical, or chemical weed control methods to minimize weed competition and maximize yield.'
+                                    '\nTimely Harvesting: Harvest mung beans when pods are fully mature but before they start shattering to prevent yield losses.')
+
+    if 'Blackgram' in row['label']:
+       new_df.at[index, 'label'] += ('\n\nInoculation: Use rhizobia inoculants to ensure effective nitrogen fixation in black gram plants.'
+       '\nVariety Selection: Choose black gram varieties suitable for your agro-climatic conditions and with resistance to prevalent pests and diseases.'
+       '\nCrop Rotation: Rotate black gram with non-leguminous crops to maintain soil fertility and break disease cycles.'
+       '\nWeed Management: Implement integrated weed management practices to control weeds and minimize yield losses.'
+       '\nTimely Harvesting: Harvest black gram at the right stage to prevent seed shattering and ensure maximum yield and quality.')
+
+    if 'Lentil' in row['label']:
+       new_df.at[index, 'label'] += ('\n\nInoculation: Inoculate lentil seeds with rhizobia strains to enhance nitrogen fixation capacity and improve plant growth.'
+       '\nVariety Selection: Select lentil varieties with traits such as high yield potential, disease resistance, and adaptation to local growing conditions.'
+       '\nCrop Rotation: Rotate lentils with non-leguminous crops to optimize soil health and minimize pest and disease pressure.'
+       '\nWeed Management: Employ weed control measures to reduce competition and optimize resource utilization for lentil plants.'
+       '\nTimely Harvesting: Harvest lentils promptly when pods are fully mature but before they start to shatter to maximize yield and quality.')
+
+
+    if 'Pomegranate' in row['label']:
+      new_df.at[index, 'label'] += ('\n\nNutrient Requirements: Pomegranate trees require balanced fertilization with nitrogen, phosphorus, potassium, and micronutrients like zinc and iron. Nitrogen should be applied in split doses during the growing season.'
+      '\nIncreasing Yield: Pruning pomegranate trees to remove dead or diseased branches, thinning fruit clusters to allow for better air circulation and light penetration, managing irrigation to avoid water stress, controlling pests and diseases, and providing adequate organic matter through mulching or compost application can improve fruit yield.')
+
+
+
+    if 'Banana' in row['label']:
+      new_df.at[index, 'label'] += ('\n\nNutrient Requirements: Bananas are heavy feeders and require regular applications of nitrogen, phosphorus, potassium, and micronutrients like magnesium and zinc. Potassium is particularly important for fruit development and quality.'
+      '\nIncreasing Yield: Proper spacing between banana plants, regular removal of older leaves to facilitate air circulation, timely irrigation to prevent water stress, controlling pests and diseases, and applying organic mulch or compost around the base of the plants can enhance banana yield.')
+
+
+    if 'Mango' in row['label']:
+      new_df.at[index, 'label'] += ('\n\nNutrient Requirements: Mango trees require balanced fertilization with nitrogen, phosphorus, potassium, and micronutrients like zinc and boron. Nitrogen should be applied in split doses during the growing season, with a higher proportion applied during flowering and fruit set.'
+      '\nIncreasing Yield: Pruning mango trees to remove dead or overcrowded branches, thinning fruit clusters to ensure uniform fruit size and quality, managing irrigation to avoid water stress, controlling pests and diseases, and providing adequate support for heavy fruit-bearing branches can improve mango yield.')
+
+
+    if 'Grapes' in row['label']:
+      new_df.at[index, 'label'] += ('\n\nNutrient Requirements: Grapes require balanced fertilization with nitrogen, phosphorus, potassium, and micronutrients like magnesium and boron. Potassium is essential for fruit development and sugar accumulation.'
+      '\nIncreasing Yield: Pruning grapevines to maintain an open canopy and promote fruiting wood, thinning excess shoots and clusters to improve airflow and light penetration, managing irrigation to avoid water stress, controlling pests and diseases, and providing adequate support for grape clusters can enhance grape yield.')
+
+    if 'Watermelon' in row['label']:
+      new_df.at[index, 'label'] += ('\n\nNutrient Requirements: Watermelon plants require balanced fertilization with nitrogen, phosphorus, potassium, and micronutrients like calcium and magnesium. Adequate nitrogen is essential for vegetative growth, while potassium is crucial for fruit development and sweetness.'
+      '\nIncreasing Yield: Proper spacing between watermelon plants, providing trellises or supports for vining varieties, managing irrigation to prevent water stress, controlling pests and diseases, applying organic mulch to conserve soil moisture and suppress weeds, and harvesting at the right maturity stage can improve watermelon yield.')
+
+    if 'Muskmelon' in row['label']:
+      new_df.at[index, 'label'] += ('\n\nNutrient Requirements: Muskmelon plants need balanced fertilization with nitrogen, phosphorus, potassium, and micronutrients like boron and manganese. Potassium is important for fruit development and sweetness.'
+      '\nIncreasing Yield: Proper spacing between muskmelon plants, trellising or supporting vines to prevent fruit rot, managing irrigation to avoid water stress, controlling pests and diseases, applying organic mulch to conserve soil moisture and suppress weeds, and harvesting when fruits are fully ripe can enhance muskmelon yield.')
+
+    if 'Apple' in row['label']:
+      new_df.at[index, 'label'] += ('\n\nNutrient Requirements: Apple trees require balanced fertilization with nitrogen, phosphorus, potassium, and micronutrients like calcium and boron. Adequate nitrogen is important for vegetative growth and fruit set, while potassium is crucial for fruit development and quality.'
+      '\nIncreasing Yield: Pruning apple trees to maintain an open canopy and facilitate light penetration, thinning excess fruit clusters to promote larger fruit size and reduce biennial bearing, managing irrigation to avoid water stress, controlling pests and diseases, and providing proper support for heavy fruit-bearing branches can improve apple yield.')
+
+
+    if 'Orange' in row['label']:
+       new_df.at[index, 'label'] += ('\n\nNutrient Requirements: Orange trees need balanced fertilization with nitrogen, phosphorus, potassium, and micronutrients like magnesium and zinc. Adequate nitrogen is important for vegetative growth and fruit set, while potassium is essential for fruit development and sweetness.'
+       '\nIncreasing Yield: Pruning orange trees to remove dead or diseased branches, thinning excess fruit clusters to promote larger fruit size and improve air circulation, managing irrigation to prevent water stress, controlling pests and diseases, and providing proper support for heavy fruit-bearing branches can enhance orange yield.')
+
+
+    if 'Papaya' in row['label']:
+      new_df.at[index, 'label'] += ('\n\nNutrient Requirements: Papaya plants require balanced fertilization with nitrogen, phosphorus, potassium, and micronutrients like magnesium and iron. Adequate nitrogen is important for vegetative growth and fruit set, while potassium is essential for fruit development and quality.'
+      '\nIncreasing Yield: Pruning papaya plants to remove old or diseased leaves, providing support for heavy fruit clusters, managing irrigation to prevent water stress, controlling pests and diseases, and applying organic mulch to conserve soil moisture and suppress weeds can improve papaya yield.')
+
+    if 'Coconut' in row['label']:
+      new_df.at[index, 'label'] += ('\n\nNutrient Requirements: Coconut palms require balanced fertilization with nitrogen, phosphorus, potassium, and micronutrients like magnesium and manganese. Potassium is particularly important for coconut development and fruit production.'
+      '\nIncreasing Yield: Pruning coconut palms to remove old or diseased fronds, managing irrigation to prevent water stress, controlling pests and diseases, providing adequate drainage to avoid waterlogging, and regular application of organic matter or mulch around the base of the tree can enhance coconut yield.')
+
+
+    if 'Cotton' in row['label']:
+      new_df.at[index, 'label'] += ('\n\nNutrient Requirements: Cotton plants require nitrogen for vegetative growth, phosphorus for root development and early growth, and potassium for overall plant health and boll formation. Micronutrients like boron and zinc are also important for proper fiber development.'
+      '\nIncreasing Yield: Implementing integrated nutrient management practices, such as balanced fertilization based on soil test results, applying fertilizers at critical growth stages, managing weeds effectively to reduce competition for nutrients and moisture, adopting proper irrigation scheduling to prevent water stress, implementing disease and pest management strategies, and using suitable planting techniques like row spacing and seed rate optimization can enhance cotton yield.')
+
+    if 'Jute' in row['label']:
+      new_df.at[index, 'label'] += ('\n\nNutrient Requirements: Jute plants require nitrogen for vegetative growth and fiber production, phosphorus for root development and early growth, and potassium for overall plant health and fiber quality. Micronutrients like iron and manganese are also important for proper growth.'
+      '\nIncreasing Yield: Implementing integrated nutrient management practices, such as soil testing to determine nutrient deficiencies, applying balanced fertilizers based on crop requirements, managing weeds effectively through manual or chemical methods, adopting proper irrigation scheduling to maintain soil moisture levels, controlling diseases and pests through cultural and chemical methods, and adopting suitable planting techniques like proper spacing and seed rate optimization can improve jute yield.')
+
+    if 'Coffee' in row['label']:
+      new_df.at[index, 'label'] += ('\n\nNutrient Requirements: Coffee plants require nitrogen for vegetative growth and fruit development, phosphorus for root growth and flowering, and potassium for overall plant health and fruit quality. Micronutrients like magnesium and boron are also important for proper growth and bean development.'
+      '\nIncreasing Yield: Implementing integrated nutrient management practices, such as regular soil testing to assess nutrient status, applying fertilizers based on crop requirements and soil analysis results, managing weeds through manual or chemical methods to reduce competition for nutrients and moisture, adopting proper irrigation scheduling to maintain soil moisture levels, controlling diseases and pests through cultural and chemical methods, providing shade and wind protection to coffee plants, and adopting suitable pruning and harvesting techniques can enhance coffee yield.')
+
+
+new_df.head()
+from sklearn.model_selection import train_test_split
+
+X = new_df[['N', 'P', 'K', 'temperature', 'ph']]
+y = new_df['label']
+
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+
+print("X_train shape:", X_train.shape)
+print("X_test shape:", X_test.shape)
+print("y_train shape:", y_train.shape)
+print("y_test shape:", y_test.shape)
